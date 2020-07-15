@@ -20,6 +20,7 @@ public class Personnage : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             //animation.Play("Jump");
+            Debug.Log("Jump");
             StartCoroutine(Mouvement.Jump(gameObject));
         }
 
