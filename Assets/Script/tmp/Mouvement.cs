@@ -45,6 +45,8 @@ public class Mouvement : MonoBehaviour
         character.gameObject.transform.localPosition = new Vector3(posStart.x - 5.0f, posStart.y, posStart.z);
         rigidbody.useGravity = true;
         yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+        //Changement de tuile courante
+        character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().currentTile.Gauche;
         character.GetComponent<Personnage>().IsMoving = false;
 
     }
@@ -69,6 +71,7 @@ public class Mouvement : MonoBehaviour
         character.gameObject.transform.localPosition = new Vector3(posStart.x + 5.0f, posStart.y, posStart.z);
         rigidbody.useGravity = true;
         yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+        character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().currentTile.Droite;
         character.GetComponent<Personnage>().IsMoving = false;
 
     }
@@ -93,6 +96,7 @@ public class Mouvement : MonoBehaviour
         character.gameObject.transform.localPosition = new Vector3(posStart.x, posStart.y, posStart.z + 5.0f);
         rigidbody.useGravity = true;
         yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+        character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().currentTile.Avant;
         character.GetComponent<Personnage>().IsMoving = false;
 
     }
@@ -118,6 +122,7 @@ public class Mouvement : MonoBehaviour
         character.gameObject.transform.localPosition = new Vector3(posStart.x, posStart.y, posStart.z - 5.0f);
         rigidbody.useGravity = true;
         yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+        character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().currentTile.Arriere;
         character.GetComponent<Personnage>().IsMoving = false;
 
     }
