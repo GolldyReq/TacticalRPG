@@ -22,4 +22,6 @@ public class GameController : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Personnage>();
         return player;
     }
+
+    
 }

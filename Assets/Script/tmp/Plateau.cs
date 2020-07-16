@@ -6,7 +6,7 @@ using UnityEngine;
 public class Plateau : MonoBehaviour
 {
 
-    [SerializeField] GameObject tile;
+    [SerializeField] public GameObject tile;
     GameObject[,] tiles;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class Plateau : MonoBehaviour
     {
         int x_max = 3;
         int y_max = 3;
+        
         Debug.Log("Géneration du terrain");
         tiles = new GameObject[x_max, y_max];
         for (int i = 0; i < x_max; i++)
@@ -48,7 +49,7 @@ public class Plateau : MonoBehaviour
                 Debug.Log(i + ":" + j);
             }
         }
-        LoadVoisin();
+        Tile.LoadVoisin(tiles);
     }
 
     private Tile getVoisin(float x,float z)

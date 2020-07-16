@@ -127,4 +127,29 @@ public class Mouvement : MonoBehaviour
 
     }
 
+    public static IEnumerator GoTO(GameObject character , Vector3 targetPosition)
+    {
+        character.GetComponent<Personnage>().IsMoving = true;
+        Animator animation = character.GetComponentInChildren<Animator>();
+        Rigidbody rigidbody = character.GetComponentInChildren<Rigidbody>();
+        rigidbody.useGravity = false;
+        animation.Play("Move");
+        float elapsedTime = 0;
+        float duree = .5f;
+        Vector3 posStart = character.gameObject.transform.localPosition;
+        while (elapsedTime < duree)
+        {
+            float k = elapsedTime / duree;
+            character.gameObject.transform.localPosition = Vector3.Lerp(posStart, targetPosition , k);
+            elapsedTime += Time.deltaTime;
+            yield return null; // Attendre la prochaine frame 
+        }
+        character.gameObject.transform.localPosition = targetPosition;
+        rigidbody.useGravity = true;
+        yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+        character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().getTile();
+        character.GetComponent<Personnage>().IsMoving = false;
+
+    }
+
 }

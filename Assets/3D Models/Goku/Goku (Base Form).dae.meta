@@ -1,0 +1,417 @@
+fileFormatVersion: 2
+guid: c11419d4bfe5fc2418db5074d1662e5f
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Armature
+    - GKN_avt
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: G_pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_thigh_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_thigh_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_calf_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_calf_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_foot_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_foot_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_waist
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_clavicle_L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_clavicle_R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_uparm_L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_uparm_R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_lowarm_L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_lowarm_R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_hand_L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: G_hand_R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Goku (Base Form)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Goku (Base Form)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460435, y: -0, z: -0, w: 1}
+      scale: {x: 0.0254, y: 0.0254, z: 0.0254}
+    - name: G_root
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.000000178814, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_base
+      parentName: G_root
+      position: {x: -0, y: 1, z: 0.000000178814}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_pelvis
+      parentName: G_base
+      position: {x: 7.10543e-14, y: 24, z: 0.00000429153}
+      rotation: {x: -2.84217e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_tail
+      parentName: G_pelvis
+      position: {x: -0, y: 1.999998, z: -7}
+      rotation: {x: 0.00000002833245, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_waist_parts_L
+      parentName: G_pelvis
+      position: {x: -10, y: 4.999998, z: 0.500001}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_waist_parts_R
+      parentName: G_pelvis
+      position: {x: 10, y: 4.999998, z: 0.500001}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_waist_parts_B
+      parentName: G_pelvis
+      position: {x: -0, y: 5, z: -8.500001}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_thigh_L
+      parentName: G_pelvis
+      position: {x: -5, y: -0.00000190735, z: -4.54747e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_calf_L
+      parentName: G_thigh_L
+      position: {x: 0.000000476837, y: -11.5, z: -0.00000205636}
+      rotation: {x: -1.421085e-14, y: -1.0587936e-22, z: 0.0000000074506, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_foot_L
+      parentName: G_calf_L
+      position: {x: 0.000000953674, y: -11.23001, z: -0.00000200808}
+      rotation: {x: 0, y: 0, z: 0.00000002235175, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_thigh_R
+      parentName: G_pelvis
+      position: {x: 5, y: -0.00000190735, z: -4.54747e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_calf_R
+      parentName: G_thigh_R
+      position: {x: -0.000000476837, y: -11.5, z: -0.00000205636}
+      rotation: {x: -1.421085e-14, y: 1.0587936e-22, z: -0.0000000074506, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_foot_R
+      parentName: G_calf_R
+      position: {x: -0.000000953674, y: -11.23001, z: -0.00000200808}
+      rotation: {x: 0, y: 0, z: -0.00000002235175, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_waist
+      parentName: G_pelvis
+      position: {x: -0, y: 7.499996, z: 0.0000013411}
+      rotation: {x: -4.263255e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_chest
+      parentName: G_waist
+      position: {x: -0, y: 7.500004, z: 0.00000134111}
+      rotation: {x: 4.2632554e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: G_back_parts1_
+      parentName: G_chest
+      position: {x: -0, y: 7.5, z: -10}
+      rotation: {x: -0.38268343, y: 0, z: -0, w: 0.92387956}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: G_back_parts2_
+      parentName: G_back_parts1_
+      position: {x: -0, y: 0, z: -20}
+      rotation: {x: 0.0000000596045, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_neck
+      parentName: G_chest
+      position: {x: -0, y: 7, z: 0.0000012517}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: G_head
+      parentName: G_neck
+      position: {x: -0, y: 8.000008, z: 0.00000143051}
+      rotation: {x: 5.68435e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_head_scl
+      parentName: G_head
+      position: {x: -0, y: -2.500008, z: -1}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_hair
+      parentName: G_head_scl
+      position: {x: -0, y: 18.21421, z: -3.674032}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_clavicle_L
+      parentName: G_chest
+      position: {x: -4, y: 4.5, z: 0.000000804665}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: G_shoulder_parts_L
+      parentName: G_clavicle_L
+      position: {x: -3, y: 2, z: 0.000000357629}
+      rotation: {x: 0.00000014432194, y: 0.0000000010157999, z: -0.1736481, w: 0.9848078}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: G_uparm_L
+      parentName: G_clavicle_L
+      position: {x: -6.5, y: 0, z: 9.09495e-13}
+      rotation: {x: -1.421085e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_lowarm_L
+      parentName: G_uparm_L
+      position: {x: -6.5, y: 0, z: -9.09495e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_hand_L
+      parentName: G_lowarm_L
+      position: {x: -9.500008, y: 0.00000762939, z: 9.09495e-13}
+      rotation: {x: 1.2285171e-21, y: 1.48215e-14, z: -0.0000000828875, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_clavicle_R
+      parentName: G_chest
+      position: {x: 4, y: 4.5, z: 0.000000804665}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: G_shoulder_parts_R
+      parentName: G_clavicle_R
+      position: {x: 3, y: 2, z: 0.000000357629}
+      rotation: {x: 0.00000018040474, y: -0.000000044751452, z: 0.173648, w: 0.9848078}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: G_uparm_R
+      parentName: G_clavicle_R
+      position: {x: 6.5, y: 0, z: 9.09495e-13}
+      rotation: {x: -1.421085e-14, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_lowarm_R
+      parentName: G_uparm_R
+      position: {x: 6.5, y: 0, z: -9.09495e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_hand_R
+      parentName: G_lowarm_R
+      position: {x: 9.500008, y: 0.00000762939, z: 9.09495e-13}
+      rotation: {x: 1.2285171e-21, y: -1.48215e-14, z: 0.0000000828875, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: G_waist_parts_F
+      parentName: G_pelvis
+      position: {x: -0, y: 4.999996, z: 8.999999}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GKN_avt
+      parentName: Goku (Base Form)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

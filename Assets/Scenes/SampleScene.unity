@@ -232,9 +232,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1355618076}
-  Arriere: {fileID: 1456720420}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 1456720420}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -343,9 +347,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1720534585}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1432269705}
   Droite: {fileID: 912188040}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -367,9 +375,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -559,9 +571,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 858578940}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 1450425148}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -677,9 +693,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1134550702}
   Droite: {fileID: 1355618076}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -887,13 +907,91 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1134550702}
-  Arriere: {fileID: 336645592}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 336645592}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
   destructible: 0
+--- !u!1001 &878026938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e14a79451f744e64d8c6286e93f2188f, type: 2}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c11419d4bfe5fc2418db5074d1662e5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Goku (Base Form)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c11419d4bfe5fc2418db5074d1662e5f, type: 3}
 --- !u!1 &912188039
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,9 +1030,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1797582022}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 216362569}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -956,9 +1058,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1284,9 +1390,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 858578940}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 623305494}
+  Arriere: {fileID: 858578940}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1329,9 +1439,13 @@ MonoBehaviour:
   z: 10
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 1495951579}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 1462887056}
+  Arriere: {fileID: 1495951579}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1353,9 +1467,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1551,9 +1669,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 14960337}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 623305494}
   Droite: {fileID: 0}
+  Arriere: {fileID: 14960337}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1596,9 +1718,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1495951579}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 216362569}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1620,9 +1746,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1812,9 +1942,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 336645592}
   Droite: {fileID: 1456720420}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1930,9 +2064,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 14960337}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1450425148}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1975,9 +2113,13 @@ MonoBehaviour:
   z: 10
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 1720534585}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1143621644}
   Droite: {fileID: 1495426072}
+  Arriere: {fileID: 1720534585}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1999,9 +2141,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2180,9 +2326,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2204,9 +2354,13 @@ MonoBehaviour:
   z: 10
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 1797582022}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1462887056}
   Droite: {fileID: 0}
+  Arriere: {fileID: 1797582022}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2309,9 +2463,13 @@ MonoBehaviour:
   z: 5
   tname: 
   Avant: {fileID: 1143621644}
-  Arriere: {fileID: 1432269705}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 1720534585}
+  Arriere: {fileID: 1432269705}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2333,9 +2491,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2452,9 +2614,13 @@ MonoBehaviour:
   z: 5
   tname: 
   Avant: {fileID: 1462887056}
-  Arriere: {fileID: 216362569}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1495951579}
   Droite: {fileID: 1797582022}
+  Arriere: {fileID: 216362569}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2476,9 +2642,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2595,9 +2765,13 @@ MonoBehaviour:
   z: 5
   tname: 
   Avant: {fileID: 1495426072}
-  Arriere: {fileID: 912188040}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 1720534585}
   Droite: {fileID: 0}
+  Arriere: {fileID: 912188040}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2619,9 +2793,13 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 0}
-  Arriere: {fileID: 0}
+  AvantGauche: {fileID: 0}
+  AvantDroite: {fileID: 0}
   Gauche: {fileID: 0}
   Droite: {fileID: 0}
+  Arriere: {fileID: 0}
+  ArriereGauche: {fileID: 0}
+  ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
