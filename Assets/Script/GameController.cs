@@ -15,4 +15,11 @@ public class GameController : MonoBehaviour
     {
         
     }
+    //Retourne le personnage qui joue actuellement
+    public static Personnage GetCurrentPlayer()
+    {
+        Personnage player = null;
+        player = GameObject.Find("Player").GetComponent<Personnage>();
+        return player;
+    }
 }

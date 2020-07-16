@@ -22,6 +22,8 @@ public class Tile : MonoBehaviour
     public int taille = 1;
     //Savoir si un joueur se trouve sur la tuile
     public bool empty;
+    //Joueur se trouvant sur la tuile
+    public Personnage currentPlayer;
     //Certaine tuile seront destructible 
     public bool destructible;
 
@@ -32,7 +34,7 @@ public class Tile : MonoBehaviour
         this.x = transform.position.x/5;
         this.y = transform.position.y/5;
         this.z = transform.position.z/5;
-        this.name = x.ToString() +":"+ y.ToString()+":"+ z.ToString();
+        this.tname = x.ToString() +":"+ y.ToString()+":"+ z.ToString();
     }
 
     // Update is called once per frame
@@ -67,6 +69,8 @@ public class Tile : MonoBehaviour
 
         Debug.Log(name);
         this.GetComponent<Renderer>().material.color = Color.green;
+        GameController.GetCurrentPlayer().setTargetTile(this);
+        
 
     }
 

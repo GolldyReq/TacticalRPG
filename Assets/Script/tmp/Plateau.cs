@@ -70,7 +70,6 @@ public class Plateau : MonoBehaviour
 
     private void LoadVoisin()
     {
-
         //for(int i=0;i<tiles.Rank;i++)
         for(int i = 0 ; i < tiles.GetLength(0) ; i++)
         {
@@ -91,8 +90,6 @@ public class Plateau : MonoBehaviour
                 current.Avant = getVoisin(x , z+1);
 
             }
-        }
-        
-        
+        } 
     }
 }
