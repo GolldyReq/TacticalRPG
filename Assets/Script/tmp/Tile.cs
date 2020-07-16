@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour
     void Start()
     {
         this.x = transform.position.x / 5;
-        this.y = transform.position.y / 5;
+        this.y = transform.position.y ;
         this.z = transform.position.z / 5;
         this.tname = x.ToString() + ":" + y.ToString() + ":" + z.ToString();
         voisins = new Tile[] { Avant, AvantGauche, AvantDroite, Gauche, Droite, Arriere, ArriereGauche, ArriereDroite };

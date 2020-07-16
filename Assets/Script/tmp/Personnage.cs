@@ -73,16 +73,14 @@ public class Personnage : MonoBehaviour
         }
         return t;
     }
-
+    /*
     public void setTargetTile (Tile targetTile){
         if (targetTile.tname != currentTile.tname)
         {
             this.targetTile = targetTile;
-            Debug.Log(this.pname + " doit se rendre sur la case : " + this.targetTile.tname);
+            //Debug.Log(this.pname + " doit se rendre sur la case : " + this.targetTile.tname);
             //Liste des mouvements à effectuer pour bouger
             List<Tile> liste_move = new List<Tile>();
-            //while (this.currentTile != this.targetTile)
-            //{
             //Cases voisines a la case actuelle
             Tile[] caseVoisine = currentTile.getAllVoisins();
             if (caseVoisine.Length > 0)
@@ -96,7 +94,7 @@ public class Personnage : MonoBehaviour
                 foreach (Tile t in caseVoisine)
                 {
                     float newdist = Vector3.Distance(t.transform.position, targetTile.transform.position);
-                    //Debug.Log("Distance entre " + targetTile.tname + " et " + t.tname + " = " + newdist.ToString());
+                    Debug.Log("Distance entre " + targetTile.tname + " et " + t.tname + " = " + newdist.ToString());
                     if (newdist < dist)
                     {
                         dist = newdist;
@@ -106,12 +104,62 @@ public class Personnage : MonoBehaviour
                 liste_move.Add(NextMove);
                 this.currentTile = NextMove;
                 Debug.Log("Prochaine case : " + this.currentTile.tname);
-                StartCoroutine(Mouvement.GoTO(gameObject, new Vector3(NextMove.x * 5, (NextMove.y * 5) + 0.5f, NextMove.z * 5)));
+                //StartCoroutine(Mouvement.GoTO(gameObject, new Vector3(NextMove.x * 5, (NextMove.y * 5) + 0.5f, NextMove.z * 5)));
                 if (this.currentTile != this.targetTile)
                     setTargetTile(this.targetTile);
             }
-            //}
             Debug.Log("Fin du pathfinding");
+        }
+    }
+    */
+    public void setTargetTile(Tile targetTile)
+    {
+        if (targetTile.tname != currentTile.tname)
+        {
+            this.targetTile = targetTile;
+            //Liste des mouvements à effectuer pour bouger jusqu'a la target
+            List<Tile> liste_move = new List<Tile>(); 
+            getPath(liste_move);
+            Debug.Log("Fin du pathfinding");
+            Debug.Log(liste_move.Count);
+            Debug.Log("Liste du chemin :");
+            foreach(Tile t in liste_move)
+            {
+                Debug.Log(t.tname);
+            }
+            Debug.Log("Debut Deplacement");
+            StartCoroutine(Mouvement.GoTO(gameObject, liste_move));
+        }
+    }
+    private void getPath(List<Tile> path)
+    {
+        //Cases voisines a la case actuelle
+        Tile[] caseVoisine = currentTile.getAllVoisins();
+        if (caseVoisine.Length > 0)
+        {
+            //Le premier voisin est par défault le premier choix 
+            //Debug.Log("Case actuelle : " + this.currentTile.tname);
+            Tile NextMove = caseVoisine[0];
+            //Mesure de la distance entre la case choisi et la case target
+            float dist = Vector3.Distance(NextMove.transform.position, targetTile.transform.position);
+            foreach (Tile t in caseVoisine)
+            {
+                float newdist = Vector3.Distance(t.transform.position, targetTile.transform.position);
+                //Debug.Log("Distance entre " + targetTile.tname + " et " + t.tname + " = " + newdist.ToString());
+                if (newdist < dist)
+                {
+                    dist = newdist;
+                    NextMove = t;
+                }
+            }
+            Debug.Log("Ajout de la case " + NextMove.tname);
+            path.Add(NextMove);
+            this.currentTile = NextMove;
+            //Debug.Log("Prochaine case : " + this.currentTile.tname);
+            if (this.currentTile != this.targetTile)
+                getPath(path);
+                //setTargetTile(this.targetTile);
+            
         }
     }
 }

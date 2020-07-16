@@ -22,8 +22,8 @@ public class Plateau : MonoBehaviour
 
     public void CreateEmptyMap()
     {
-        int x_max = 3;
-        int y_max = 3;
+        int x_max = 9;
+        int y_max = 9;
         
         Debug.Log("Géneration du terrain");
         tiles = new GameObject[x_max, y_max];

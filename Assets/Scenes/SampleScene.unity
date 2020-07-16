@@ -322,7 +322,6 @@ GameObject:
   - component: {fileID: 216362572}
   - component: {fileID: 216362571}
   - component: {fileID: 216362569}
-  - component: {fileID: 216362570}
   m_Layer: 0
   m_Name: 1_0
   m_TagString: Untagged
@@ -347,38 +346,10 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1720534585}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
+  AvantGauche: {fileID: 1495951579}
+  AvantDroite: {fileID: 1797582022}
   Gauche: {fileID: 1432269705}
   Droite: {fileID: 912188040}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &216362570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216362568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
   Arriere: {fileID: 0}
   ArriereGauche: {fileID: 0}
   ArriereDroite: {fileID: 0}
@@ -918,80 +889,6 @@ MonoBehaviour:
   empty: 0
   currentPlayer: {fileID: 0}
   destructible: 0
---- !u!1001 &878026938
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -6057140222963153312, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e14a79451f744e64d8c6286e93f2188f, type: 2}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: c11419d4bfe5fc2418db5074d1662e5f,
-        type: 3}
-      propertyPath: m_Name
-      value: Goku (Base Form)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c11419d4bfe5fc2418db5074d1662e5f, type: 3}
 --- !u!1 &912188039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +902,6 @@ GameObject:
   - component: {fileID: 912188043}
   - component: {fileID: 912188042}
   - component: {fileID: 912188040}
-  - component: {fileID: 912188041}
   m_Layer: 0
   m_Name: 2_0
   m_TagString: Untagged
@@ -1030,37 +926,9 @@ MonoBehaviour:
   z: 0
   tname: 
   Avant: {fileID: 1797582022}
-  AvantGauche: {fileID: 0}
+  AvantGauche: {fileID: 1720534585}
   AvantDroite: {fileID: 0}
   Gauche: {fileID: 216362569}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &912188041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912188039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
   Droite: {fileID: 0}
   Arriere: {fileID: 0}
   ArriereGauche: {fileID: 0}
@@ -1414,7 +1282,6 @@ GameObject:
   - component: {fileID: 1143621647}
   - component: {fileID: 1143621646}
   - component: {fileID: 1143621644}
-  - component: {fileID: 1143621645}
   m_Layer: 0
   m_Name: 0_2
   m_TagString: Untagged
@@ -1445,35 +1312,7 @@ MonoBehaviour:
   Droite: {fileID: 1462887056}
   Arriere: {fileID: 1495951579}
   ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1143621645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143621643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
+  ArriereDroite: {fileID: 1720534585}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -1693,7 +1532,6 @@ GameObject:
   - component: {fileID: 1432269708}
   - component: {fileID: 1432269707}
   - component: {fileID: 1432269705}
-  - component: {fileID: 1432269706}
   m_Layer: 0
   m_Name: 0_0
   m_TagString: Untagged
@@ -1719,37 +1557,9 @@ MonoBehaviour:
   tname: 
   Avant: {fileID: 1495951579}
   AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
+  AvantDroite: {fileID: 1720534585}
   Gauche: {fileID: 0}
   Droite: {fileID: 216362569}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1432269706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432269704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
   Arriere: {fileID: 0}
   ArriereGauche: {fileID: 0}
   ArriereDroite: {fileID: 0}
@@ -2088,7 +1898,6 @@ GameObject:
   - component: {fileID: 1462887059}
   - component: {fileID: 1462887058}
   - component: {fileID: 1462887056}
-  - component: {fileID: 1462887057}
   m_Layer: 0
   m_Name: 1_2
   m_TagString: Untagged
@@ -2118,36 +1927,8 @@ MonoBehaviour:
   Gauche: {fileID: 1143621644}
   Droite: {fileID: 1495426072}
   Arriere: {fileID: 1720534585}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1462887057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462887055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
+  ArriereGauche: {fileID: 1495951579}
+  ArriereDroite: {fileID: 1797582022}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2287,7 +2068,6 @@ GameObject:
   - component: {fileID: 1495426074}
   - component: {fileID: 1495426073}
   - component: {fileID: 1495426072}
-  - component: {fileID: 1495426071}
   m_Layer: 0
   m_Name: 2_2
   m_TagString: Untagged
@@ -2309,34 +2089,6 @@ Transform:
   m_Father: {fileID: 991524867}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1495426071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495426069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
 --- !u!114 &1495426072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,7 +2111,7 @@ MonoBehaviour:
   Gauche: {fileID: 1462887056}
   Droite: {fileID: 0}
   Arriere: {fileID: 1797582022}
-  ArriereGauche: {fileID: 0}
+  ArriereGauche: {fileID: 1720534585}
   ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
@@ -2438,7 +2190,6 @@ GameObject:
   - component: {fileID: 1495951582}
   - component: {fileID: 1495951581}
   - component: {fileID: 1495951579}
-  - component: {fileID: 1495951580}
   m_Layer: 0
   m_Name: 0_1
   m_TagString: Untagged
@@ -2464,40 +2215,12 @@ MonoBehaviour:
   tname: 
   Avant: {fileID: 1143621644}
   AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
+  AvantDroite: {fileID: 1462887056}
   Gauche: {fileID: 0}
   Droite: {fileID: 1720534585}
   Arriere: {fileID: 1432269705}
   ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1495951580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495951578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
+  ArriereDroite: {fileID: 216362569}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2589,7 +2312,6 @@ GameObject:
   - component: {fileID: 1720534588}
   - component: {fileID: 1720534587}
   - component: {fileID: 1720534585}
-  - component: {fileID: 1720534586}
   m_Layer: 0
   m_Name: 1_1
   m_TagString: Untagged
@@ -2614,41 +2336,13 @@ MonoBehaviour:
   z: 5
   tname: 
   Avant: {fileID: 1462887056}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
+  AvantGauche: {fileID: 1143621644}
+  AvantDroite: {fileID: 1495426072}
   Gauche: {fileID: 1495951579}
   Droite: {fileID: 1797582022}
   Arriere: {fileID: 216362569}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1720534586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720534584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
+  ArriereGauche: {fileID: 1432269705}
+  ArriereDroite: {fileID: 912188040}
   taille: 1
   empty: 0
   currentPlayer: {fileID: 0}
@@ -2740,7 +2434,6 @@ GameObject:
   - component: {fileID: 1797582025}
   - component: {fileID: 1797582024}
   - component: {fileID: 1797582022}
-  - component: {fileID: 1797582023}
   m_Layer: 0
   m_Name: 2_1
   m_TagString: Untagged
@@ -2765,40 +2458,12 @@ MonoBehaviour:
   z: 5
   tname: 
   Avant: {fileID: 1495426072}
-  AvantGauche: {fileID: 0}
+  AvantGauche: {fileID: 1462887056}
   AvantDroite: {fileID: 0}
   Gauche: {fileID: 1720534585}
   Droite: {fileID: 0}
   Arriere: {fileID: 912188040}
-  ArriereGauche: {fileID: 0}
-  ArriereDroite: {fileID: 0}
-  taille: 1
-  empty: 0
-  currentPlayer: {fileID: 0}
-  destructible: 0
---- !u!114 &1797582023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797582021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea94e4e2e942864ba4d00c5b9040244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
-  tname: 
-  Avant: {fileID: 0}
-  AvantGauche: {fileID: 0}
-  AvantDroite: {fileID: 0}
-  Gauche: {fileID: 0}
-  Droite: {fileID: 0}
-  Arriere: {fileID: 0}
-  ArriereGauche: {fileID: 0}
+  ArriereGauche: {fileID: 216362569}
   ArriereDroite: {fileID: 0}
   taille: 1
   empty: 0
