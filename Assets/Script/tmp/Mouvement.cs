@@ -159,8 +159,7 @@ public class Mouvement : MonoBehaviour
         Rigidbody rigidbody = character.GetComponentInChildren<Rigidbody>();
         foreach(Tile t in path)
         {
-            Debug.Log("Move to" + t.tname);
-            Vector3 targetPosition = new Vector3(t.x*5 , t.y+ 0.5f, t.z * 5);
+            Vector3 targetPosition = new Vector3( t.x * 5 , t.y + 0.5f , t.z * 5 );
             rigidbody.useGravity = false;
             animation.Play("Move");
             float elapsedTime = 0;
@@ -175,10 +174,9 @@ public class Mouvement : MonoBehaviour
             }
             character.gameObject.transform.localPosition = targetPosition;
             rigidbody.useGravity = true;
-            yield return new WaitForSeconds(.25f); // Attendre la prochaine frame 
+            yield return new WaitForSeconds(.15f); // Attendre la prochaine frame 
             character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().getTile();
         }
         character.GetComponent<Personnage>().IsMoving = false;
-
     }
 }
