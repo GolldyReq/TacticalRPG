@@ -36,9 +36,10 @@ public class Plateau : MonoBehaviour
                     GameObject Tile = (GameObject)Instantiate(tile);
                     Tile.transform.position = new Vector3(i * 5, 0, j * 5);
                     Tile.name = i.ToString() + "_" + j.ToString();
-                    Tile.AddComponent<Tile>();
-                    Tile.GetComponent<Tile>().x = i * 5;
-                    Tile.GetComponent<Tile>().z = j * 5;
+                    if(Tile.GetComponent<Tile>()==null)
+                        Tile.AddComponent<Tile>();
+                    //Tile.GetComponent<Tile>().x = i*5;
+                    //Tile.GetComponent<Tile>().z = j*5;
                     Tile.transform.parent = GameObject.Find("Map").gameObject.transform;
                     tiles[i, j] = Tile;
                 }
@@ -50,47 +51,5 @@ public class Plateau : MonoBehaviour
             }
         }
         Tile.LoadVoisin(tiles);
-    }
-
-    private Tile getVoisin(float x,float z)
-    {
-        Tile t = null;
-        try
-        {
-
-            GameObject voisin = GameObject.Find(x.ToString() + "_" + z.ToString());
-            Debug.Log("Trouvé : " + voisin.name);
-            t = voisin.GetComponent<Tile>();
-        }
-        catch(Exception e)
-        {
-            Debug.Log("Impossible de trouver " + x.ToString() + "_" + z.ToString());
-        }
-        return t;
-    }
-
-    private void LoadVoisin()
-    {
-        //for(int i=0;i<tiles.Rank;i++)
-        for(int i = 0 ; i < tiles.GetLength(0) ; i++)
-        {
-            //for(int j=0;j<tiles.GetLength(i);j++)
-            for(int j = 0 ; j < tiles.GetLength(1); j++)
-            {
-                Tile current = tiles[i,j].GetComponent<Tile>();
-                float x = current.x / 5;
-                float z = current.z / 5;
-                Debug.Log("Attribution des voisins de la tuile : " + current.tname);
-                //Trouver le voisin de gauche
-                current.Gauche = getVoisin(x-1,z);
-                //Trouver le voisin de droite
-                current.Droite = getVoisin(x + 1, z);
-                //Trouver le voisin de devant 
-                current.Arriere = getVoisin(x, z-1);
-                //Trouver le voisin de derrière
-                current.Avant = getVoisin(x , z+1);
-
-            }
-        } 
     }
 }

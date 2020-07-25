@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } }
 
-    public enum GAME_STATE {Menu, Play , Pause , Loading  , Victory , GameOver , Equipe , PlayerMove , TerrainView }
-    GAME_STATE m_State;
+    public enum GAME_STATE {MenuPrincipal, Play , Pause , Loading  , Victory , GameOver , Equipe , PlayerMove , TerrainView }
+    public GAME_STATE m_State;
 
     public event Action<GAME_STATE> OnGameStateChange;
 
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Pause"))
-            ChangeState(GAME_STATE.Pause);
+        //if (Input.GetButton("Pause"))
+            //ChangeState(GAME_STATE.Pause);
     }
 
 
@@ -46,12 +46,12 @@ public class GameManager : MonoBehaviour
         
 
         MenuManager.Instance.OnStartPlayButtonHasBeenClicked += OnStartPlayButtonHasBeenClicked;
-
-        ChangeState(GAME_STATE.Menu);
+        ChangeState(GAME_STATE.MenuPrincipal);
     }
 
     private void OnStartPlayButtonHasBeenClicked()
     {
-
+        Debug.Log("J'appuie la sur le bouton");
+        ChangeState(GAME_STATE.Play);
     }
 }

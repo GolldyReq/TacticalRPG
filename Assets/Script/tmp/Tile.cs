@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
     //Chaque tuile posséde des voisins accessible
     //Voisins = Tableau de maximum 8 tuiles (pour les diagonales mais limité a 4 pour l'instant) 
     //Tuile 0 = Avant, 1=Arriere
+    /*
     [SerializeField] public Tile Avant;
     [SerializeField] public Tile AvantGauche;
     [SerializeField] public Tile AvantDroite;
@@ -22,9 +23,11 @@ public class Tile : MonoBehaviour
     [SerializeField] public Tile Arriere;
     [SerializeField] public Tile ArriereGauche;
     [SerializeField] public Tile ArriereDroite;
+    */
 
+    public List<Tile> m_voisins;
     //Tableau des voisins
-    private Tile[] voisins;
+    //private Tile[] voisins;
 
     //Certaines tuiles pourront avoir une taille plus grande
     public int taille = 1;
@@ -37,15 +40,28 @@ public class Tile : MonoBehaviour
 
     private bool coolDown;
 
+
+    public void SetPos(float x,float y, float z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    void Awake()
+    {
+        this.tname = x.ToString() + ":" + y.ToString() + ":" + z.ToString();
+        coolDown = false;
+        this.empty = true;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        this.x = transform.position.x / 5;
-        this.y = transform.position.y ;
-        this.z = transform.position.z / 5;
-        this.tname = x.ToString() + ":" + y.ToString() + ":" + z.ToString();
-        voisins = new Tile[] { Avant, AvantGauche, AvantDroite, Gauche, Droite, Arriere, ArriereGauche, ArriereDroite };
-        coolDown = false;
+        /*
+        this.x = transform.position.x/5;
+        this.y = transform.position.y;
+        this.z = transform.position.z/5;
+        */
 
     }
 
@@ -60,15 +76,6 @@ public class Tile : MonoBehaviour
         return empty;
     }
 
-    //L->Gauche R->Droite F->Devant B->Derriere
-    public bool hasVoisin(char direction)
-    {
-        bool has = false;
-        if (direction == 'L' && this.Gauche != null || direction == 'R' && this.Droite != null || direction == 'F' && this.Avant != null || direction == 'B' && this.Arriere != null)
-            return true;
-        return has;
-    }
-
     void OnMouseEnter()
     {
         this.GetComponent<Renderer>().material.color = Color.blue;
@@ -77,12 +84,16 @@ public class Tile : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!coolDown)
+        if (!coolDown && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play)
         {
             coolDown = true;
             Debug.Log(name);
             this.GetComponent<Renderer>().material.color = Color.green;
-            GameController.GetCurrentPlayer().setTargetTile(this);
+            //GameController.m_Instance.GetCurrentPlayer();
+            if (this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
+                GameController.m_Instance.GetCurrentPlayer().setTargetTile(this);
+            else if(this != GameController.m_Instance.GetCurrentPlayer().currentTile)
+                GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
             coolDown = false;
         }
        
@@ -104,27 +115,36 @@ public class Tile : MonoBehaviour
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 Tile current = tiles[i, j].GetComponent<Tile>();
-                float x = current.x / 5;
-                float z = current.z / 5;
+                //float x = current.x / 5;
+                //float z = current.z / 5;
+                current.SetPos(i, 0, j);
                 Debug.Log("Attribution des voisins de la tuile : " + current.tname);
-                //Trouver le voisin de gauche
-                current.Gauche = current.getVoisin(x - 1, z);
-                //Trouver le voisin de droite
-                current.Droite = current.getVoisin(x + 1, z);
-                //Trouver le voisin de derriere 
-                current.Arriere = current.getVoisin(x, z - 1);
-                //Trouver le voisin de devant
-                current.Avant = current.getVoisin(x, z + 1);
-
-                //Trouver le voisin de devant-gauche
-                current.AvantGauche = current.getVoisin(x - 1, z + 1);
-                //Trouver le voisin de devant-droite
-                current.AvantDroite = current.getVoisin(x + 1, z + 1);
-                //Trouver le voisin de derrière-gauche
-                current.ArriereGauche = current.getVoisin(x - 1, z - 1);
-                //Trouver le voisin de derrière-droite
-                current.ArriereDroite = current.getVoisin(x + 1, z - 1);
-
+                Debug.Log("current : " + current.x + " : " + current.z);
+                current.getVoisins();
+                
+            }
+        }
+    }
+    private void getVoisins()
+    {
+        for(int i = (int)this.x-1;i<=(int)this.x+1;i++)
+        {
+            for(int j=(int)this.z-1;j<=(int)this.z+1;j++)
+            {
+                if (i == x && j == z)
+                    continue;
+                try
+                {
+                    Debug.Log("Recherche du voisin : " + i + " : " + j);
+                    GameObject voisin = GameObject.Find(i.ToString() + "_" + j.ToString());
+                    Debug.Log("Trouvé : " + voisin.name);
+                    this.m_voisins.Add(voisin.GetComponent<Tile>());
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("Impossible de trouver " + i.ToString() + "_" + j.ToString());
+                }
+                
             }
         }
     }
@@ -146,28 +166,15 @@ public class Tile : MonoBehaviour
         return t;
     }
 
-    private int nbVoisin()
-    {
-        int nbVoisin = 0;
-        foreach(Tile t in voisins)
-        {
-            if (t != null)
-                nbVoisin++;
-        }
-        return nbVoisin;
-    }
-
     public Tile[] getAllVoisins()
     {
-        Tile[] liste_voisins = new Tile[nbVoisin()];
+        Tile[] liste_voisins = new Tile[m_voisins.Count];
         int i = 0;
-        foreach(Tile t in voisins)
+        foreach (Tile t in m_voisins)
         {
-            if(t!= null)
-            {
-                liste_voisins[i] = t;
-                i++;
-            }
+            liste_voisins[i] = t;
+            i++;
+            
         }
         return liste_voisins;
     }
