@@ -42,7 +42,7 @@ public class Personnage : MonoBehaviour
 
         //ajout de la suppression dans la liste des joueurs du GameController
         if (this.m_stats.getPv() <= 0)
-            Destroy(gameObject);
+            GameController.RemovePlayer(this);
         //faire sauter le personnage
         if (Input.GetButton("Jump"))
             StartCoroutine(Mouvement.Jump(gameObject));
@@ -63,7 +63,7 @@ public class Personnage : MonoBehaviour
         //if (Physics.Raycast(transform.position/, -Vector3.up, out hit, 5))
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, 5))
         {
-            Debug.Log("Hit Ray");
+            //Debug.Log("Hit Ray");
             t = hit.transform.gameObject.GetComponent<Tile>();
             t.empty = false;
             t.currentPlayer = this;
@@ -131,9 +131,26 @@ public class Personnage : MonoBehaviour
     
     public void attack(Personnage cible)
     {
+
+        Debug.Log("Distance de l'attaque : " + Tile.Distance(this.currentTile, cible.currentTile));
+        //Empecher d'attaquer plus loin que la portée de l'attaque
+        if (Tile.Distance(this.currentTile,cible.currentTile) > this.m_attaques[0].getRange())
+        {
+            Debug.Log("Hors de portée");
+            return;
+        }
+        //Empecher de se cibler soi-même
+        if (cible == this)
+            return;
         //Calcul des dommages
         cible.m_stats.setPv(cible.m_stats.getPv() - this.m_attaques[0].getDammage());
         //joueur suivant
-        GameController.m_Instance.NextPlayer();
+        if(!cible.IsDead())
+            GameController.m_Instance.NextPlayer();
+    }
+
+    public bool IsDead()
+    {
+        return this.m_stats.getPv() <= 0;
     }
 }

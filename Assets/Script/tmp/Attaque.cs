@@ -18,4 +18,5 @@ public class Attaque
     }
 
     public int getDammage() { return this.dammage; }
+    public int getRange() { return this.range; }
 }

@@ -56,7 +56,7 @@ public class MenuManager : MonoBehaviour
   
         foreach(Transform p in GameObject.Find("Pannels").transform)
         {
-            Debug.Log("Ajotu du panneau : " + p.gameObject.name);
+            //Debug.Log("Ajotu du panneau : " + p.gameObject.name);
             m_Panels.Add(new Panel(p.gameObject.name, p.gameObject));
         }
 

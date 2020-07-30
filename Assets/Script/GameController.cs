@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
             if (character.gameObject.GetComponent<Personnage>() != null)
             {
                 m_characters.Add(character.gameObject.GetComponent<Personnage>());
-                Debug.Log("Ajout de " + character.gameObject.name);
+                //Debug.Log("Ajout de " + character.gameObject.name);
             }
         }
         m_nbcharacters = m_characters.Count;
@@ -45,13 +45,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(this.m_currentPlayer.IsDead())
+        {
+            RemovePlayer(m_currentPlayer);
+            NextPlayer();
+        }
     }
 
     public void NextPlayer()
     {
-        GameController.m_Instance.m_actualPlayer = (GameController.m_Instance.m_actualPlayer + 1) % GameController.m_Instance.m_nbcharacters;
-        GameController.m_Instance.m_currentPlayer = GameController.m_Instance.m_characters[GameController.m_Instance.m_actualPlayer];
+        if (m_nbcharacters > 1)
+        {
+            GameController.m_Instance.m_actualPlayer = (GameController.m_Instance.m_actualPlayer + 1) % GameController.m_Instance.m_nbcharacters;
+            GameController.m_Instance.m_currentPlayer = GameController.m_Instance.m_characters[GameController.m_Instance.m_actualPlayer];
+
+        }
     }
 
     //Retourne le personnage qui joue actuellement
@@ -64,9 +72,27 @@ public class GameController : MonoBehaviour
         Personnage player;
         player = GameController.m_Instance.m_currentPlayer.GetComponent<Personnage>();
         //GameController.m_Instance.NextPlayer();
-        Debug.Log("retour du perso : " + GameController.m_Instance.m_currentPlayer);
+        //Debug.Log("retour du perso : " + GameController.m_Instance.m_currentPlayer);
         return player;
     }
 
+    public static void RemovePlayer(Personnage player)
+    {
+        foreach (Personnage p in GameController.m_Instance.m_characters)
+        {
+            if(p==player)
+            {
+                Debug.Log("Mort du personnage : " + p.name);
+                //suppresion de la case
+                p.getTile().empty = true;
+                //on enleve le joueur de la liste
+                GameController.m_Instance.m_characters.Remove(p);
+                GameController.m_Instance.m_nbcharacters--;
+                //Destruction du joueur
+                Destroy(p.gameObject);
+                return;
+            }
+        }
+    } 
     
 }

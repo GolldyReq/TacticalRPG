@@ -156,7 +156,7 @@ public class Tile : MonoBehaviour
         {
 
             GameObject voisin = GameObject.Find(x.ToString() + "_" + z.ToString());
-            Debug.Log("Trouvé : " + voisin.name);
+            //Debug.Log("Trouvé : " + voisin.name);
             t = voisin.GetComponent<Tile>();
         }
         catch (Exception e)
@@ -177,6 +177,31 @@ public class Tile : MonoBehaviour
             
         }
         return liste_voisins;
+    }  
+
+    //Distance entre 2 cases
+    public static int Distance(Tile start, Tile end)
+    {
+        int d = 0;
+       
+        while(start != end)
+        {
+            Tile next = null;
+            next = start.m_voisins[0];
+            float dist = Vector3.Distance(start.transform.position, end.transform.position);
+            foreach (Tile t in start.m_voisins)
+            {
+                float newdist = Vector3.Distance(t.transform.position, end.transform.position);
+                if (newdist < dist)
+                {
+                    next = t;
+                    dist = newdist;
+                }
+            }
+            start = next;
+            d++;
+        }
+        return d;
     }
 
-}
+ }
