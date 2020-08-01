@@ -53,6 +53,7 @@ public class Mouvement : MonoBehaviour
         }
         character.GetComponent<Personnage>().IsMoving = false;
         character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().getTile();
-        GameController.m_Instance.NextPlayer();
+        GameController.m_Instance.m_Phase = GameController.PHASEACTION.ChoixAtt;
+        //GameController.m_Instance.NextPlayer();
     }
 }

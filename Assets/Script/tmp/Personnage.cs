@@ -16,7 +16,7 @@ public class Personnage : MonoBehaviour
     public Tile targetTile;
 
     //Nom du personnage
-    [SerializeField] string pname;
+    [SerializeField]public string pname;
 
     public Statistiques m_stats;
     public List<Attaque> m_attaques;
@@ -30,7 +30,7 @@ public class Personnage : MonoBehaviour
         targetTile = null;
         if (this.pname == null)
             this.pname = "player";
-        m_stats = new Statistiques(1);
+        m_stats = new Statistiques(5);
         m_attaques = new List<Attaque>();
         m_attaques.Add(new Attaque("charge",2,1));
     }
@@ -58,6 +58,15 @@ public class Personnage : MonoBehaviour
 
     public Tile getTile()
     {
+        /*
+        if (currentTile != null)
+        {
+            foreach (Tile tile in currentTile.m_voisins)
+            {
+                tile.color = false;
+            }
+        }
+        */
         Tile t = null;
         RaycastHit hit;
         //if (Physics.Raycast(transform.position/, -Vector3.up, out hit, 5))
@@ -65,6 +74,10 @@ public class Personnage : MonoBehaviour
         {
             //Debug.Log("Hit Ray");
             t = hit.transform.gameObject.GetComponent<Tile>();
+            foreach(Tile tile in t.m_voisins)
+            {
+                tile.color = true;
+            }
             t.empty = false;
             t.currentPlayer = this;
         }
@@ -75,6 +88,11 @@ public class Personnage : MonoBehaviour
     {
         if (this.currentTile == null)
             this.currentTile = getTile();
+
+        foreach(Tile t in currentTile.m_voisins)
+        {
+            t.color = false;
+        }
         this.currentTile.empty = true;
         this.currentTile.currentPlayer = null;
 

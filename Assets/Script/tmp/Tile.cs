@@ -38,7 +38,8 @@ public class Tile : MonoBehaviour
     //Certaine tuile seront destructible 
     public bool destructible;
 
-    private bool coolDown;
+    private bool select;
+    public bool color;
 
 
     public void SetPos(float x,float y, float z)
@@ -50,8 +51,9 @@ public class Tile : MonoBehaviour
 
     void Awake()
     {
+        this.select = false;
+        this.color = false;
         this.tname = x.ToString() + ":" + y.ToString() + ":" + z.ToString();
-        coolDown = false;
         this.empty = true;
     }
     // Start is called before the first frame update
@@ -62,12 +64,15 @@ public class Tile : MonoBehaviour
         this.y = transform.position.y;
         this.z = transform.position.z/5;
         */
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!select)
+            this.GetComponent<Renderer>().material.color = Color.white;
+        if (color && !select)
+            this.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
     //Retourne vrai si un joueur se situe sur la tuile
@@ -78,23 +83,30 @@ public class Tile : MonoBehaviour
 
     void OnMouseEnter()
     {
+        select = true;
         this.GetComponent<Renderer>().material.color = Color.blue;
 
     }
 
     void OnMouseDown()
     {
-        if (!coolDown && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play)
+        select = true;
+        //Deplacement
+        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixDeplacement && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play)
         {
-            coolDown = true;
             Debug.Log(name);
+            GameController.m_Instance.m_Phase = GameController.PHASEACTION.Mouvement;
             this.GetComponent<Renderer>().material.color = Color.green;
             //GameController.m_Instance.GetCurrentPlayer();
             if (this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
                 GameController.m_Instance.GetCurrentPlayer().setTargetTile(this);
             else if(this != GameController.m_Instance.GetCurrentPlayer().currentTile)
                 GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
-            coolDown = false;
+        }
+        //Attaque
+        if(GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixCible)
+        {
+            Debug.Log("Attaque");
         }
        
         
@@ -102,6 +114,7 @@ public class Tile : MonoBehaviour
 
     void OnMouseExit()
     {
+        select = false;
         this.GetComponent<Renderer>().material.color = Color.white;
 
     }

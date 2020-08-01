@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } }
 
-    public enum GAME_STATE {MenuPrincipal, Play , Pause , Loading  , Victory , GameOver , Equipe , PlayerMove , TerrainView }
+    public enum GAME_STATE {MenuPrincipal,Play,Pause,Loading, Victory , GameOver , Equipe , TerrainView }
     public GAME_STATE m_State;
 
     public event Action<GAME_STATE> OnGameStateChange;
@@ -53,5 +53,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("J'appuie la sur le bouton");
         ChangeState(GAME_STATE.Play);
+        ToolsPannel.ChangeCurrentPlayerUI(GameController.m_Instance.GetCurrentPlayer());
+        ToolsPannel.ChangeTourUI(0);
     }
 }

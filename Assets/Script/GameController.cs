@@ -7,10 +7,16 @@ public class GameController : MonoBehaviour
     public static GameController m_Instance;
     public static GameController Instance { get { return m_Instance; } }
 
+    public enum PHASEACTION { ChoixDeplacement, Mouvement , ChoixAtt , ChoixCible}
+    public PHASEACTION m_Phase;
+
     public List<Personnage> m_characters;
     private int m_actualPlayer;
     private Personnage m_currentPlayer;
     private int m_nbcharacters;
+
+    private int nbTour;
+
 
     void Awake()
     {
@@ -32,9 +38,11 @@ public class GameController : MonoBehaviour
         {
             m_currentPlayer = m_characters[0];
             m_actualPlayer = 0;
+            ToolsPannel.ChangeCurrentPlayerUI(GameController.m_Instance.m_currentPlayer);
         }
         else
             Debug.Log("Pas de personnages");
+        nbTour = 0;
     }
     // Start is called before the first frame update
     void Start()
@@ -58,6 +66,10 @@ public class GameController : MonoBehaviour
         {
             GameController.m_Instance.m_actualPlayer = (GameController.m_Instance.m_actualPlayer + 1) % GameController.m_Instance.m_nbcharacters;
             GameController.m_Instance.m_currentPlayer = GameController.m_Instance.m_characters[GameController.m_Instance.m_actualPlayer];
+            ToolsPannel.ChangeCurrentPlayerUI(GameController.m_Instance.m_currentPlayer);
+            this.nbTour++;
+            ToolsPannel.ChangeTourUI(this.nbTour);
+            GameController.m_Instance.m_Phase = PHASEACTION.ChoixDeplacement;
 
         }
     }
@@ -94,5 +106,5 @@ public class GameController : MonoBehaviour
             }
         }
     } 
-    
+   
 }
