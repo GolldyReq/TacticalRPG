@@ -217,4 +217,20 @@ public class Tile : MonoBehaviour
         return d;
     }
 
- }
+    public static void ShowDeplacementTile(Personnage p)
+    {
+        foreach(Tile t in p.currentTile.m_voisins)
+        {
+            t.color = true;
+        }
+    }
+    public static void HideDeplacementTile(Personnage p)
+    {
+        Debug.Log(p.currentTile.name);
+        foreach (Tile t in p.currentTile.m_voisins)
+        {
+            t.color = false;
+        }
+    }
+
+}

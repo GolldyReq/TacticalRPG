@@ -32,7 +32,8 @@ public class Personnage : MonoBehaviour
             this.pname = "player";
         m_stats = new Statistiques(5);
         m_attaques = new List<Attaque>();
-        m_attaques.Add(new Attaque("charge",2,1));
+        m_attaques.Add(new Attaque("charge",2,2));
+        m_attaques.Add(new Attaque("Glucoup", 4, 1));
     }
 
     // Update is called once per frame
@@ -58,15 +59,7 @@ public class Personnage : MonoBehaviour
 
     public Tile getTile()
     {
-        /*
-        if (currentTile != null)
-        {
-            foreach (Tile tile in currentTile.m_voisins)
-            {
-                tile.color = false;
-            }
-        }
-        */
+        
         Tile t = null;
         RaycastHit hit;
         //if (Physics.Raycast(transform.position/, -Vector3.up, out hit, 5))
@@ -74,10 +67,12 @@ public class Personnage : MonoBehaviour
         {
             //Debug.Log("Hit Ray");
             t = hit.transform.gameObject.GetComponent<Tile>();
+            /*
             foreach(Tile tile in t.m_voisins)
             {
                 tile.color = true;
             }
+            */
             t.empty = false;
             t.currentPlayer = this;
         }
@@ -88,11 +83,12 @@ public class Personnage : MonoBehaviour
     {
         if (this.currentTile == null)
             this.currentTile = getTile();
-
+        /*
         foreach(Tile t in currentTile.m_voisins)
         {
             t.color = false;
-        }
+        }*/
+        Tile.HideDeplacementTile(this);
         this.currentTile.empty = true;
         this.currentTile.currentPlayer = null;
 

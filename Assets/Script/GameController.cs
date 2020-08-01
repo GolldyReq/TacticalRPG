@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
         else
             Debug.Log("Pas de personnages");
         nbTour = 0;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,10 @@ public class GameController : MonoBehaviour
             RemovePlayer(m_currentPlayer);
             NextPlayer();
         }
+
+        if(this.m_Phase == PHASEACTION.ChoixDeplacement)
+            Tile.ShowDeplacementTile(GameController.m_Instance.m_currentPlayer);
+
     }
 
     public void NextPlayer()
@@ -70,7 +75,6 @@ public class GameController : MonoBehaviour
             this.nbTour++;
             ToolsPannel.ChangeTourUI(this.nbTour);
             GameController.m_Instance.m_Phase = PHASEACTION.ChoixDeplacement;
-
         }
     }
 
