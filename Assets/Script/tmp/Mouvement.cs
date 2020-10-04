@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mouvement : MonoBehaviour
 {
-    
+ 
     public static IEnumerator Idle(GameObject character)
     {
         Animator animation = character.GetComponentInChildren<Animator>();
@@ -28,6 +28,7 @@ public class Mouvement : MonoBehaviour
    
     public static IEnumerator GoTO(GameObject character, List<Tile> path)
     {
+        GameController.Instance.ChangePhase(GameController.PHASEACTION.Mouvement);
         character.GetComponent<Personnage>().IsMoving = true;
         character.GetComponent<Personnage>().currentTile.empty = true;
         Animator animation = character.GetComponentInChildren<Animator>();
@@ -35,8 +36,10 @@ public class Mouvement : MonoBehaviour
         foreach(Tile t in path)
         {
             Vector3 targetPosition = new Vector3( t.x * 5 , t.y + 1f , t.z * 5 );
-            rigidbody.useGravity = false;
-            animation.Play("Move");
+            if(rigidbody!=null)
+                rigidbody.useGravity = false;
+            if(animation!=null)
+                animation.Play("Move");
             float elapsedTime = 0;
             float duree = .5f;
             Vector3 posStart = character.gameObject.transform.localPosition;
@@ -48,12 +51,14 @@ public class Mouvement : MonoBehaviour
                 yield return null; // Attendre la prochaine frame 
             }
             character.gameObject.transform.localPosition = targetPosition;
-            rigidbody.useGravity = true;
+            if(rigidbody!=null)
+                rigidbody.useGravity = true;
             yield return new WaitForSeconds(.15f); // Attendre la prochaine frame 
         }
         character.GetComponent<Personnage>().IsMoving = false;
         character.GetComponent<Personnage>().currentTile = character.GetComponent<Personnage>().getTile();
-        GameController.m_Instance.m_Phase = GameController.PHASEACTION.ChoixAtt;
+        GameController.Instance.ChangePhase(GameController.PHASEACTION.ChoixAction);
+        GameController.Instance.hasMove = true;
         //GameController.m_Instance.NextPlayer();
     }
 }

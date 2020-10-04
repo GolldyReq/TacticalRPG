@@ -49,11 +49,14 @@ public class GameManager : MonoBehaviour
         ChangeState(GAME_STATE.MenuPrincipal);
     }
 
+    //Boutton lancant le jeu
     private void OnStartPlayButtonHasBeenClicked()
     {
-        Debug.Log("J'appuie la sur le bouton");
+        //Debug.Log("J'appuie la sur le bouton");
         ChangeState(GAME_STATE.Play);
+
         ToolsPannel.ChangeCurrentPlayerUI(GameController.m_Instance.GetCurrentPlayer());
         ToolsPannel.ChangeTourUI(0);
+        GameController.Instance.ChangePhase(GameController.PHASEACTION.ChoixAction);
     }
 }
