@@ -14,7 +14,7 @@ public class MenuScript: MonoBehaviour
             map = new GameObject("Map");
         if (map.GetComponent<Plateau>() == null)
         {
-            Debug.Log("Ajout de la classe Plateau à la map");
+            //Debug.Log("Ajout de la classe Plateau à la map");
             map.AddComponent<Plateau>();
             Plateau plateau = map.GetComponent<Plateau>();
             plateau.tile = (GameObject) Resources.Load("tmp/BasicTile", typeof(GameObject));

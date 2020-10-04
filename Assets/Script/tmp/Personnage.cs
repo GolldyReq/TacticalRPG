@@ -20,7 +20,12 @@ public class Personnage : MonoBehaviour
 
     public Statistiques m_stats;
     public List<Attaque> m_attaques;
+    public Attaque m_currentAtt;
 
+    public int pvMax;
+    public int pmMax;
+
+    public List<Tile> tileToGo;
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +35,21 @@ public class Personnage : MonoBehaviour
         targetTile = null;
         if (this.pname == null)
             this.pname = "player";
-        m_stats = new Statistiques(5);
+        m_stats = new Statistiques(5,3,2);
+        pvMax = m_stats.getPv();
+        pmMax = m_stats.getPm();
         m_attaques = new List<Attaque>();
         m_attaques.Add(new Attaque("charge",2,2));
-        m_attaques.Add(new Attaque("Glucoup", 4, 1));
+        m_attaques.Add(new Attaque("Glucoup", 3, 1, Attaque.RANGE_TYPE.Line,3));
+
+        tileToGo = new List<Tile>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position , -Vector3.up*100,Color.red,5f);
+        if (GameManager.m_Instance.m_State != GameManager.GAME_STATE.Play)
+            return;
 
         //ajout de la suppression dans la liste des joueurs du GameController
         if (this.m_stats.getPv() <= 0)
@@ -62,33 +72,26 @@ public class Personnage : MonoBehaviour
         
         Tile t = null;
         RaycastHit hit;
-        //if (Physics.Raycast(transform.position/, -Vector3.up, out hit, 5))
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, 5))
         {
-            //Debug.Log("Hit Ray");
             t = hit.transform.gameObject.GetComponent<Tile>();
-            /*
-            foreach(Tile tile in t.m_voisins)
-            {
-                tile.color = true;
-            }
-            */
+
             t.empty = false;
             t.currentPlayer = this;
         }
         return t;
     }
     
+    //Deplacement du personnage
     public void setTargetTile(Tile targetTile)
     {
+        if (Tile.Distance(this.currentTile, targetTile) > this.m_stats.getMobility())
+            return;
+
         if (this.currentTile == null)
             this.currentTile = getTile();
-        /*
-        foreach(Tile t in currentTile.m_voisins)
-        {
-            t.color = false;
-        }*/
-        Tile.HideDeplacementTile(this);
+
+        Plateau.m_Instance.resetColorAllTile();
         this.currentTile.empty = true;
         this.currentTile.currentPlayer = null;
 
@@ -99,11 +102,10 @@ public class Personnage : MonoBehaviour
             List<Tile> liste_move = new List<Tile>(); 
             getPath(liste_move);
             StartCoroutine(Mouvement.GoTO(gameObject, liste_move));
-            
         }
     }
 
-
+    //Ajoute récursivement dans une liste le chemin a parcourir pour atteindre la case target
     private void getPath(List<Tile> path)
     {
         if (currentTile.m_voisins.Count > 0)
@@ -128,7 +130,7 @@ public class Personnage : MonoBehaviour
             foreach (Tile t in currentTile.m_voisins)
             {
                 float newdist = Vector3.Distance(t.transform.position, targetTile.transform.position);
-                if (newdist < dist && t.empty==true)
+                if (newdist < dist && t.empty==true && !path.Contains(t))
                 {
                     dist = newdist;
                     NextMove = t;
@@ -136,19 +138,16 @@ public class Personnage : MonoBehaviour
             }
             path.Add(NextMove);
             this.currentTile = NextMove;
-            //Debug.Log("Prochaine case : " + this.currentTile.tname);
             if (this.currentTile != this.targetTile)
                 getPath(path);
-            //setTargetTile(this.targetTile);
         }
     }  
     
     public void attack(Personnage cible)
     {
 
-        Debug.Log("Distance de l'attaque : " + Tile.Distance(this.currentTile, cible.currentTile));
         //Empecher d'attaquer plus loin que la portée de l'attaque
-        if (Tile.Distance(this.currentTile,cible.currentTile) > this.m_attaques[0].getRange())
+        if (!m_currentAtt.getCibles().Contains(cible.currentTile))
         {
             Debug.Log("Hors de portée");
             return;
@@ -157,12 +156,21 @@ public class Personnage : MonoBehaviour
         if (cible == this)
             return;
         //Calcul des dommages
-        cible.m_stats.setPv(cible.m_stats.getPv() - this.m_attaques[0].getDammage());
+        cible.m_stats.setPv(cible.m_stats.getPv() - m_currentAtt.getDammage());
+        //Diminution du mana
+        this.m_stats.setPm(this.m_stats.getPm() - m_currentAtt.getCost());
         //joueur suivant
-        if(!cible.IsDead())
-            GameController.m_Instance.NextPlayer();
+        m_currentAtt.resetCibles();
+        m_currentAtt = null;
+
+        ToolsPannel.EraseSelectedPlayerUI();
+        GameController.m_Instance.NextPlayer();
     }
 
+    public int getPvMax() { return pvMax; }
+    public int getPv() { return m_stats.getPv(); }
+    public int getPmMax() { return pmMax; }
+    public int getPm() { return m_stats.getPm(); }
     public bool IsDead()
     {
         return this.m_stats.getPv() <= 0;

@@ -6,12 +6,38 @@ using UnityEngine;
 public class Plateau : MonoBehaviour
 {
 
+    public static Plateau m_Instance;
+    public static Plateau Instance { get { return m_Instance; } }
+
+
     [SerializeField] public GameObject tile;
     GameObject[,] tiles;
+    public List<Tile> Map;
+
+    int x_max = 5;
+    int y_max = 5;
+
+    void Awake()
+    {
+        if (m_Instance == null)
+            m_Instance = this;
+        else
+            Destroy(gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(tile.name);
+        Map = new List<Tile>();
+        for (int i = 0; i < x_max; i++)
+        {
+            for (int j = 0; j < y_max; j++)
+            {
+                if (GameObject.Find(i.ToString() + "_" + j.ToString()))
+                {
+                    Map.Add(GameObject.Find(i.ToString()+"_"+j.ToString()).GetComponent<Tile>());
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -22,10 +48,9 @@ public class Plateau : MonoBehaviour
 
     public void CreateEmptyMap()
     {
-        int x_max = 4;
-        int y_max = 4;
+       
         
-        Debug.Log("Géneration du terrain");
+        //Debug.Log("Géneration du terrain");
         tiles = new GameObject[x_max, y_max];
         for (int i = 0; i < x_max; i++)
         {
@@ -47,9 +72,19 @@ public class Plateau : MonoBehaviour
                 {
                     tiles[i, j] = GameObject.Find(i.ToString() + "_" + j.ToString());
                 }
-                Debug.Log(i + ":" + j);
+                //Debug.Log(i + ":" + j);
             }
         }
         Tile.LoadVoisin(tiles);
+    }
+
+    public void resetColorAllTile()
+    {
+        foreach(Tile t in Map)
+        {
+            t.color = false;
+            t.GetComponent<MeshRenderer>().enabled = false;
+            //t.GetComponent<Renderer>().material.color = Color.white;
+        }
     }
 }

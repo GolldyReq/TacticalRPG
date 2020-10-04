@@ -70,9 +70,26 @@ public class Tile : MonoBehaviour
     void Update()
     {
         if (!select)
+        {
             this.GetComponent<Renderer>().material.color = Color.white;
+            this.GetComponent<MeshRenderer>().enabled = false ;
+        }
         if (color && !select)
-            this.GetComponent<Renderer>().material.color = Color.yellow;
+        {
+
+            //this.GetComponent<Renderer>().material.color = Color.yellow;
+            this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponent<Renderer>().material =(Material) Resources.Load("TileMaterial");
+            this.GetComponent<Renderer>().material.color = new Color(1.0f,1.0f,0f,0.7f);
+        }
+        if (this == GameController.m_Instance.GetCurrentPlayer().currentTile)
+        {
+            //this.GetComponent<Renderer>().material.color = Color.red;
+            //this.GetComponent<Renderer>().material.color = Color.yellow;
+            this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponent<Renderer>().material = (Material)Resources.Load("TileMaterial");
+            this.GetComponent<Renderer>().material.color = new Color(1.0f, 0f, 0f, 0.7f);
+        }
     }
 
     //Retourne vrai si un joueur se situe sur la tuile
@@ -84,38 +101,55 @@ public class Tile : MonoBehaviour
     void OnMouseEnter()
     {
         select = true;
-        this.GetComponent<Renderer>().material.color = Color.blue;
-
+        this.GetComponent<MeshRenderer>().enabled = true;
+        this.GetComponent<Renderer>().material = (Material)Resources.Load("TileMaterial");
+        this.GetComponent<Renderer>().material.color = new Color(0f, 0f, 1.0f, 0.7f);
+        //Afficher Stats Personnage
+        //if (!this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile && GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixAction)
+        if (!this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile )
+        {
+            ToolsPannel.ChangeSelectedPlayerUI(this.currentPlayer);
+        }
     }
 
     void OnMouseDown()
     {
         select = true;
         //Deplacement
-        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixDeplacement && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play)
+        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixDeplacement && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play && !GameController.Instance.hasMove)
         {
-            Debug.Log(name);
-            GameController.m_Instance.m_Phase = GameController.PHASEACTION.Mouvement;
-            this.GetComponent<Renderer>().material.color = Color.green;
+            //this.GetComponent<Renderer>().material.color = Color.green;
+            this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponent<Renderer>().material = (Material)Resources.Load("TileMaterial");
+            this.GetComponent<Renderer>().material.color = new Color(0f, 1.0f, 0f, 0.7f);
             //GameController.m_Instance.GetCurrentPlayer();
             if (this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
                 GameController.m_Instance.GetCurrentPlayer().setTargetTile(this);
-            else if(this != GameController.m_Instance.GetCurrentPlayer().currentTile)
-                GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
+            
         }
         //Attaque
-        if(GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixCible)
+        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixCible)
         {
-            Debug.Log("Attaque");
+            //Debug.Log("Attaque");
+            if (!this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
+                GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
+            else
+                Debug.Log("aucun joueur sur la case choisie");
+        }  
+        /*
+        //Afficher Stats Personnage
+        if(!this.IsEmpty() && this!= GameController.m_Instance.GetCurrentPlayer().currentTile &&GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixAction)
+        {
+            ToolsPannel.ChangeSelectedPlayerUI(this.currentPlayer);
         }
-       
-        
+        */
     }
 
     void OnMouseExit()
     {
         select = false;
         this.GetComponent<Renderer>().material.color = Color.white;
+        ToolsPannel.EraseSelectedPlayerUI();
 
     }
 
@@ -131,8 +165,8 @@ public class Tile : MonoBehaviour
                 //float x = current.x / 5;
                 //float z = current.z / 5;
                 current.SetPos(i, 0, j);
-                Debug.Log("Attribution des voisins de la tuile : " + current.tname);
-                Debug.Log("current : " + current.x + " : " + current.z);
+                //Debug.Log("Attribution des voisins de la tuile : " + current.tname);
+                //Debug.Log("current : " + current.x + " : " + current.z);
                 current.getVoisins();
                 
             }
@@ -148,14 +182,14 @@ public class Tile : MonoBehaviour
                     continue;
                 try
                 {
-                    Debug.Log("Recherche du voisin : " + i + " : " + j);
+                    //Debug.Log("Recherche du voisin : " + i + " : " + j);
                     GameObject voisin = GameObject.Find(i.ToString() + "_" + j.ToString());
-                    Debug.Log("Trouvé : " + voisin.name);
+                    //Debug.Log("Trouvé : " + voisin.name);
                     this.m_voisins.Add(voisin.GetComponent<Tile>());
                 }
                 catch (Exception e)
                 {
-                    Debug.Log("Impossible de trouver " + i.ToString() + "_" + j.ToString());
+                    //Debug.Log("Impossible de trouver " + i.ToString() + "_" + j.ToString());
                 }
                 
             }
@@ -174,7 +208,7 @@ public class Tile : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("Impossible de trouver " + x.ToString() + "_" + z.ToString());
+            //Debug.Log("Impossible de trouver " + x.ToString() + "_" + z.ToString());
         }
         return t;
     }
@@ -217,20 +251,99 @@ public class Tile : MonoBehaviour
         return d;
     }
 
+    public static void getListTileMove(Personnage p ,Tile tile, List<Tile> l)
+    {
+        if (Tile.Distance(p.currentTile, tile) > p.m_stats.getMobility())
+            return;
+        if (tile.IsEmpty() && !l.Contains(tile))
+        {
+            l.Add(tile);
+            foreach (Tile newtile in tile.m_voisins)
+                Tile.getListTileMove(p, newtile, l);
+        }
+    }
     public static void ShowDeplacementTile(Personnage p)
     {
+        List<Tile> listMove = new List<Tile>();
         foreach(Tile t in p.currentTile.m_voisins)
+            Tile.getListTileMove(p,t, listMove);
+
+        foreach(Tile t in listMove)
         {
             t.color = true;
         }
+        /*
+        foreach(Tile t in p.currentTile.m_voisins)
+        {
+           t.color = true;
+        }
+        */
     }
     public static void HideDeplacementTile(Personnage p)
     {
-        Debug.Log(p.currentTile.name);
+        List<Tile> listMove = new List<Tile>();
+        foreach (Tile t in p.currentTile.m_voisins)
+            Tile.getListTileMove(p, t, listMove);
+
+        foreach (Tile t in listMove)
+        {
+            t.color = false;
+        }
+        //Debug.Log(p.currentTile.name);
+        /*
         foreach (Tile t in p.currentTile.m_voisins)
         {
             t.color = false;
         }
+        */
     }
 
+    public static Tile getFrontVoisin(Tile actual)
+    {
+        Tile t = null;
+        Debug.Log(actual.x);
+        try
+        {
+
+            GameObject voisin = GameObject.Find(actual.x.ToString() + "_" + (actual.z+1).ToString());
+            //Debug.Log("Trouvé : " + voisin.name);
+            t = voisin.GetComponent<Tile>();
+        }
+        catch (Exception e)
+        {
+            //Debug.Log("Impossible de trouver " + x.ToString() + "_" + z.ToString());
+        }
+        return t;
+    }
+
+    public static Tile getVoisinTile(Tile actual , string searchVoisin)
+    {
+        Tile t = null;
+        //Debug.Log(actual.x);
+        try
+        {
+
+            GameObject voisin = GameObject.Find(searchVoisin);
+            //Debug.Log("Trouvé : " + voisin.name);
+            t = voisin.GetComponent<Tile>();
+        }
+        catch (Exception e)
+        {
+            //Debug.Log("Impossible de trouver " + x.ToString() + "_" + z.ToString());
+        }
+        return t;
+    }
+   
+    public static Tile getTileWithCoord(int x, int z)
+    {
+        Tile t = null;
+        return t;
+    }
+    public static bool IsTileExist()
+    {
+        bool res = false;
+        return res;
+    }
+
+    
 }
