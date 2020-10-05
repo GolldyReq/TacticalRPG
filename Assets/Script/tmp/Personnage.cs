@@ -10,13 +10,13 @@ public class Personnage : MonoBehaviour
 
     //Connaître la tuile sur lequel est le personnage
     public Tile currentTile;
-    
+
     //Tuile sur laquelle on veut se rendre 
     //cette tuile vaux null tant que l'on ne clique pas sur une tuile
     public Tile targetTile;
 
     //Nom du personnage
-    [SerializeField]public string pname;
+    [SerializeField] public string pname;
 
     public Statistiques m_stats;
     public List<Attaque> m_attaques;
@@ -27,21 +27,35 @@ public class Personnage : MonoBehaviour
 
     public List<Tile> tileToGo;
 
+
+
+
+    public Personnage(string name, Statistiques stats, List<Attaque> att)
+    {
+        this.pname = name;
+        this.m_stats = stats;
+        this.m_attaques = att;
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         IsMoving = false;
         this.currentTile = getTile();
         targetTile = null;
+        
         if (this.pname == null)
             this.pname = "player";
+        
         m_stats = new Statistiques(5,3,2);
         pvMax = m_stats.getPv();
         pmMax = m_stats.getPm();
         m_attaques = new List<Attaque>();
         m_attaques.Add(new Attaque("charge",2,2));
         m_attaques.Add(new Attaque("Glucoup", 3, 1, Attaque.RANGE_TYPE.Line,3));
-
+        
         tileToGo = new List<Tile>();
     }
 
@@ -175,4 +189,5 @@ public class Personnage : MonoBehaviour
     {
         return this.m_stats.getPv() <= 0;
     }
+
 }

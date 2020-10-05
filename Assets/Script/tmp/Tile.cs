@@ -93,6 +93,7 @@ public class Tile : MonoBehaviour
             this.GetComponent<Renderer>().material = (Material)Resources.Load("TileMaterial");
             this.GetComponent<Renderer>().material.color = new Color(1.0f, 0f, 0f, 0.7f);
         }
+
     }
 
     //Retourne vrai si un joueur se situe sur la tuile
@@ -137,7 +138,10 @@ public class Tile : MonoBehaviour
             if (!this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
                 GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
             else
+            {
                 Debug.Log("aucun joueur sur la case choisie");
+                GameController.m_Instance.ChangePhase(GameController.PHASEACTION.ListAtt);
+            }
         }
         /*
         //Afficher Stats Personnage

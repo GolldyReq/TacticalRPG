@@ -42,13 +42,27 @@ public class GameController : MonoBehaviour
         ChangePhase(PHASEACTION.None);
 
     }
+
+    //Melanger les elements d'une liste de personnage
+    public static List<Personnage> Randomize<Personnage>(List<Personnage> list)
+    {
+        List<Personnage> randomizedList = new List<Personnage>(); System.Random rnd = new System.Random(); while (list.Count > 0)
+        {
+            int index = rnd.Next(0, list.Count); //pick a random item from the master list 
+            randomizedList.Add(list[index]); //place it at the end of the randomized list
+            list.RemoveAt(index); 
+        }
+        return randomizedList; 
+    }
+
+      
     void Awake()
     {
         if (m_Instance == null)
             m_Instance = this;
         else
             Destroy(gameObject);
-
+        /*
         foreach (Transform character in GameObject.Find("Characters").transform)
         {
             if (character.gameObject.GetComponent<Personnage>() != null)
@@ -56,6 +70,24 @@ public class GameController : MonoBehaviour
                 m_characters.Add(character.gameObject.GetComponent<Personnage>());
             }
         }
+        */
+        
+        foreach (Transform character in GameObject.Find("PlayerTeam").transform)
+        {
+            if (character.gameObject.GetComponent<Personnage>() != null)
+            {
+                m_characters.Add(character.gameObject.GetComponent<Personnage>());
+            }
+        }
+        foreach (Transform character in GameObject.Find("EnnemiTeam").transform)
+        {
+            if (character.gameObject.GetComponent<Personnage>() != null)
+            {
+                m_characters.Add(character.gameObject.GetComponent<Personnage>());
+            }
+        }
+        //melanger l'ordre
+        m_characters = Randomize(m_characters);
         m_nbcharacters = m_characters.Count;
         if (m_characters.Count > 0)
         {
