@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
         while (MenuManager.Instance.IsReady == false)
             yield return null;
         ChangePhase(PHASEACTION.None);
+<<<<<<< HEAD
 
     }
 
@@ -56,6 +57,10 @@ public class GameController : MonoBehaviour
     }
 
       
+=======
+
+    }
+>>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     void Awake()
     {
         if (m_Instance == null)
@@ -233,7 +238,11 @@ public class GameController : MonoBehaviour
     }
     public void GoOnActionPhase()
     {
+<<<<<<< HEAD
         if (m_Phase == PHASEACTION.ChoixDeplacement)
+=======
+        if(m_Phase == PHASEACTION.ChoixDeplacement)
+>>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
             Tile.HideDeplacementTile(m_currentPlayer);
         if(m_Phase == PHASEACTION.ChoixCible)
         {
