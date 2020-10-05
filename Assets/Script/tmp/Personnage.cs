@@ -10,36 +10,17 @@ public class Personnage : MonoBehaviour
 
     //Connaître la tuile sur lequel est le personnage
     public Tile currentTile;
-
+    
     //Tuile sur laquelle on veut se rendre 
     //cette tuile vaux null tant que l'on ne clique pas sur une tuile
     public Tile targetTile;
 
     //Nom du personnage
-    [SerializeField] public string pname;
+    [SerializeField]public string pname;
 
     public Statistiques m_stats;
     public List<Attaque> m_attaques;
     public Attaque m_currentAtt;
-<<<<<<< HEAD
-
-    public int pvMax;
-    public int pmMax;
-
-    public List<Tile> tileToGo;
-
-
-
-
-    public Personnage(string name, Statistiques stats, List<Attaque> att)
-    {
-        this.pname = name;
-        this.m_stats = stats;
-        this.m_attaques = att;
-    }
-
-=======
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
 
     public int pvMax;
     public int pmMax;
@@ -52,24 +33,15 @@ public class Personnage : MonoBehaviour
         IsMoving = false;
         this.currentTile = getTile();
         targetTile = null;
-        
         if (this.pname == null)
             this.pname = "player";
-<<<<<<< HEAD
-        
-=======
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
         m_stats = new Statistiques(5,3,2);
         pvMax = m_stats.getPv();
         pmMax = m_stats.getPm();
         m_attaques = new List<Attaque>();
         m_attaques.Add(new Attaque("charge",2,2));
         m_attaques.Add(new Attaque("Glucoup", 3, 1, Attaque.RANGE_TYPE.Line,3));
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
         tileToGo = new List<Tile>();
     }
 

@@ -16,42 +16,28 @@ public class Statistiques
     public enum PLAYER_TYPE {fire,ice,earth,electric,wind,light,darkness}
     private PLAYER_TYPE type;
 
-<<<<<<< HEAD
 
     public Statistiques(int pv,int pm,int mobility,int att, int def,int vit)
-=======
-    public Statistiques(int pv,int pm,int mobility)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     {
         this.pv = pv;
         this.pm = pm;
         this.mobility = mobility;
-<<<<<<< HEAD
         this.att = att;
         this.def = def;
         this.vit = vit;
     }
 
     public Statistiques(int pv,int pm,int mobility):this(pv,pm,mobility,1,1,1)
-=======
-    }
-
-    public Statistiques(int pv, int mobility):this(pv,10,mobility)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     {
 
     }
 
-<<<<<<< HEAD
     public Statistiques(int pv, int mobility):this(pv,10,mobility,1,1,1)
     {
 
     }
 
     public Statistiques(int pv):this(pv,10,1,1,1,1)
-=======
-    public Statistiques(int pv):this(pv,10,1)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     {
         
     }

@@ -93,10 +93,6 @@ public class Tile : MonoBehaviour
             this.GetComponent<Renderer>().material = (Material)Resources.Load("TileMaterial");
             this.GetComponent<Renderer>().material.color = new Color(1.0f, 0f, 0f, 0.7f);
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     }
 
     //Retourne vrai si un joueur se situe sur la tuile
@@ -123,11 +119,7 @@ public class Tile : MonoBehaviour
     {
         select = true;
         //Deplacement
-<<<<<<< HEAD
         if (this.color == true && GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixDeplacement && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play && !GameController.Instance.hasMove)
-=======
-        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixDeplacement && GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play && !GameController.Instance.hasMove)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
         {
             //this.GetComponent<Renderer>().material.color = Color.green;
             this.GetComponent<MeshRenderer>().enabled = true;
@@ -136,7 +128,6 @@ public class Tile : MonoBehaviour
             //GameController.m_Instance.GetCurrentPlayer();
             if (this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
                 GameController.m_Instance.GetCurrentPlayer().setTargetTile(this);
-<<<<<<< HEAD
 
         }
         //Attaque
@@ -160,26 +151,6 @@ public class Tile : MonoBehaviour
         */
         Plateau.m_Instance.resetColorAllTile();
 
-=======
-            
-        }
-        //Attaque
-        if (GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixCible)
-        {
-            //Debug.Log("Attaque");
-            if (!this.IsEmpty() && this != GameController.m_Instance.GetCurrentPlayer().currentTile)
-                GameController.m_Instance.GetCurrentPlayer().attack(this.currentPlayer);
-            else
-                Debug.Log("aucun joueur sur la case choisie");
-        }  
-        /*
-        //Afficher Stats Personnage
-        if(!this.IsEmpty() && this!= GameController.m_Instance.GetCurrentPlayer().currentTile &&GameController.m_Instance.m_Phase == GameController.PHASEACTION.ChoixAction)
-        {
-            ToolsPannel.ChangeSelectedPlayerUI(this.currentPlayer);
-        }
-        */
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
     }
 
     void OnMouseExit()
@@ -336,18 +307,13 @@ public class Tile : MonoBehaviour
         if (tile.IsEmpty() && !l.Contains(tile))
         {
             l.Add(tile);
-<<<<<<< HEAD
             foreach (Tile newtile in tile.m_directionnal_voisins)
-=======
-            foreach (Tile newtile in tile.m_voisins)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
                 Tile.getListTileMove(p, newtile, l);
         }
     }
     public static void ShowDeplacementTile(Personnage p)
     {
         List<Tile> listMove = new List<Tile>();
-<<<<<<< HEAD
         foreach (Tile t in p.currentTile.m_directionnal_voisins)
             listMove.Add(t);
         int movement = 1;
@@ -361,19 +327,11 @@ public class Tile : MonoBehaviour
             movement++;
         }
         
-=======
-        foreach(Tile t in p.currentTile.m_voisins)
-            Tile.getListTileMove(p,t, listMove);
-
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
         foreach(Tile t in listMove)
         {
             t.color = true;
         }
-<<<<<<< HEAD
         
-=======
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
         /*
         foreach(Tile t in p.currentTile.m_voisins)
         {
@@ -384,11 +342,7 @@ public class Tile : MonoBehaviour
     public static void HideDeplacementTile(Personnage p)
     {
         List<Tile> listMove = new List<Tile>();
-<<<<<<< HEAD
         foreach (Tile t in p.currentTile.m_directionnal_voisins)
-=======
-        foreach (Tile t in p.currentTile.m_voisins)
->>>>>>> 132807f040b1838e36085176e2042d6932ffd4d1
             Tile.getListTileMove(p, t, listMove);
 
         foreach (Tile t in listMove)
