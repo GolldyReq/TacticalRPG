@@ -14,6 +14,8 @@ public class ToolsPannel : MonoBehaviour
 
     public static void ChangeCurrentPlayerUI(Personnage p)
     {
+
+
         if (GameManager.m_Instance.m_State != GameManager.GAME_STATE.Play)
             return;
         MenuManager.Panel play;
@@ -46,6 +48,7 @@ public class ToolsPannel : MonoBehaviour
     }
     public static void ChangeSelectedPlayerUI(Personnage p)
     {
+        Debug.Log(p.pname);
         MenuManager.Panel play;
         foreach (MenuManager.Panel panel in MenuManager.m_Instance.m_Panels)
         {

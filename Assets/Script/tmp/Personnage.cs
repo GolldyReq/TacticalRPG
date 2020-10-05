@@ -27,12 +27,26 @@ public class Personnage : MonoBehaviour
 
     public List<Tile> tileToGo;
 
+
+
+    public Personnage(string name, Statistiques stat,List<Attaque> latt) 
+    {
+        this.pname = name;
+        this.m_stats = stat;
+        this.m_attaques = latt;
+        
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        /*
         IsMoving = false;
         this.currentTile = getTile();
         targetTile = null;
+        
         if (this.pname == null)
             this.pname = "player";
         m_stats = new Statistiques(5,3,2);
@@ -41,8 +55,9 @@ public class Personnage : MonoBehaviour
         m_attaques = new List<Attaque>();
         m_attaques.Add(new Attaque("charge",2,2));
         m_attaques.Add(new Attaque("Glucoup", 3, 1, Attaque.RANGE_TYPE.Line,3));
-
+        
         tileToGo = new List<Tile>();
+        */
     }
 
     // Update is called once per frame
@@ -75,7 +90,6 @@ public class Personnage : MonoBehaviour
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, 5))
         {
             t = hit.transform.gameObject.GetComponent<Tile>();
-
             t.empty = false;
             t.currentPlayer = this;
         }
@@ -163,8 +177,10 @@ public class Personnage : MonoBehaviour
         m_currentAtt.resetCibles();
         m_currentAtt = null;
 
-        ToolsPannel.EraseSelectedPlayerUI();
-        GameController.m_Instance.NextPlayer();
+        GameController.m_Instance.hasAtt = true;
+        GameController.m_Instance.ChangePhase(GameController.PHASEACTION.ChoixAction);
+        //ToolsPannel.EraseSelectedPlayerUI();
+        //GameController.m_Instance.NextPlayer();
     }
 
     public int getPvMax() { return pvMax; }

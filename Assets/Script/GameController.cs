@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 
     //si le joueur s'est déja deplacé
     public bool hasMove;
+    public bool hasAtt;
 
 
 
@@ -94,6 +95,7 @@ public class GameController : MonoBehaviour
             m_currentPlayer = m_characters[0];
             m_actualPlayer = 0;
             hasMove = false;
+            hasAtt = false;
             ToolsPannel.ChangeCurrentPlayerUI(GameController.m_Instance.m_currentPlayer);
             ChangePhase(PHASEACTION.ChoixAction);
         }
@@ -107,22 +109,27 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.m_currentPlayer.IsDead())
+
+        if (this.m_currentPlayer.IsDead())
         {
             RemovePlayer(m_currentPlayer);
             NextPlayer();
         }
 
-        if(this.m_Phase == PHASEACTION.ChoixDeplacement)
+        if (this.m_Phase == PHASEACTION.ChoixDeplacement)
             Tile.ShowDeplacementTile(GameController.m_Instance.m_currentPlayer);
         if (GameManager.m_Instance.m_State == GameManager.GAME_STATE.Play)
             ToolsPannel.ChangePhaseUI();
+
+        Transform[] ennemi = GameObject.Find("EnnemiTeam").transform.GetComponentsInChildren<Transform>();
+        Debug.Log(ennemi.Length);
+        
     }
 
     public void NextPlayer()
     {
         Plateau.m_Instance.resetColorAllTile();
-        if (m_nbcharacters > 1)
+        if (m_nbcharacters >= 2)
         {
             Tile.HideDeplacementTile(GameController.m_Instance.m_currentPlayer);
             GameController.m_Instance.m_actualPlayer = (GameController.m_Instance.m_actualPlayer + 1) % GameController.m_Instance.m_nbcharacters;
@@ -131,6 +138,7 @@ public class GameController : MonoBehaviour
             this.nbTour++;
             ToolsPannel.ChangeTourUI(this.nbTour);
             hasMove = false;
+            hasAtt = false;
             ChangePhase(PHASEACTION.ChoixAction);
         }
     }
@@ -246,8 +254,11 @@ public class GameController : MonoBehaviour
     }
     public void GoOnListAttPhase()
     {
-        ChangePhase(PHASEACTION.ListAtt);
-        ShowListAtt();
+        if (!hasAtt)
+        {
+            ChangePhase(PHASEACTION.ListAtt);
+            ShowListAtt();
+        }
     }
 
 }
